@@ -21,7 +21,8 @@ defmodule Giphy.Api do
     |> Map.get("url")
     |> construct_img_tag
   end
-  defp process_decoded(_) do
+  defp process_decoded(error) do
+    IO.inspect error
     "Sorry... error while fetching GIF"
   end
 

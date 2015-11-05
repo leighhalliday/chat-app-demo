@@ -10,13 +10,12 @@ defmodule ChatApp.RoomChannel do
   for the requested topic
   """
   def join("rooms:lobby", message, socket) do
-    Process.flag(:trap_exit, true)
+    # Process.flag(:trap_exit, true)
     # :timer.send_interval(60000, :ping)
-    send(self, {:after_join, message})
+    # send(self, {:after_join, message})
 
     {:ok, socket}
   end
-
   def join("rooms:" <> _private_subtopic, _message, _socket) do
     {:error, %{reason: "unauthorized"}}
   end
